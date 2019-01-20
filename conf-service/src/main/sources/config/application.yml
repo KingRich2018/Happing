@@ -1,0 +1,18 @@
+server:
+  port: 9990
+spring:
+  application:
+    name: conf-service
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/KingRich2018/happing_conf.git
+          username: 1719873656@qq.com
+          password: wangbo2018
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:9999/eureka/
+  instance:
+    preferIpAddress: true

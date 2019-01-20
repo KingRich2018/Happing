@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="conf-service" />
+        <module name="gateway-service" />
+        <module name="happing-core" />
+        <module name="reg-service" />
+        <module name="tool-service" />
+        <module name="user-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="conf-service" target="1.7" />
+      <module name="gateway-service" target="1.7" />
+      <module name="happing-core" target="1.8" />
+      <module name="happing-parent" target="1.8" />
+      <module name="parent" target="1.8" />
+      <module name="reg-service" target="1.7" />
+      <module name="tool-service" target="1.7" />
+      <module name="user-service" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

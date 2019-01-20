@@ -1,0 +1,23 @@
+server:
+  port: 7777
+spring:
+  application:
+    name: tool-service
+  cloud:
+    config:
+      profile: dev
+      label: master
+      discovery:
+        enabled: true
+        serviceId: conf-service
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:9999/eureka/
+  instance:
+    preferIpAddress: true
+    metadata-map:
+      cluster: TOOL-SERVICE
+management:
+  security:
+    enabled: false

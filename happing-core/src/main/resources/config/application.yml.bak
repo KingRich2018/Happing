@@ -1,0 +1,66 @@
+happing:
+  app:
+    # 使用CrudService.insert时，手动生成id,无此项时，需设置表自动生成id
+    dbid: m
+  # 手动生成分布式id设置
+  id:
+    epoch: 1500879026703
+    center: 0
+    worker: 6
+  # shiro 配置, enable=false时，不启动shiro
+  shiro:
+    enable: true
+    app: w  # web or service
+    loginUrl: /login/local
+    successUrl: /index
+    unauthorizedUrl: /error/403
+    definitions: /static/**=anon;/view/**=anon;/a/**/**=anon;/a/**=anon;/login/local=authce;/logout=logout;/**=user
+    globalSessionTimeout: 1800000
+  # redis
+  redis:
+    enable: true
+  # 数据源, 支持mysql
+  ds:
+    enable: true
+    type: mysql
+  # shiro的users filter依赖于user-service
+  serviceId:
+    user: user-service
+  server:
+    port: 9998
+  spring:
+    application:
+      name: user-service
+    datasource:
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://47.107.109.192:3306/happing?useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: Wang@2018
+      type: com.alibaba.druid.pool.DruidDataSource
+      filters: stat,wall,log4j
+      initalSize: 5
+      maxActive: 10
+      maxWait: 60000
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      password:
+      pool:
+        maxActive: 10
+        maxWait: -1
+        timeout: 0
+  mybatis:
+    typeAliasesPackage: top.happing.domain.model
+    mapperLocations: classpath:/mapper/**/*.xml
+  logging:
+    level:
+      top.happing.domain.mapper: DEBUG
+  hap:
+    proxy:
+      port: 8080
+      host: 47.107.109.192
+      enable: false
+  eureka:
+    client:
+      serviceUrl:
+        defaultZone: http://127.0.0.1:9999/eureka/ #service register center address

@@ -1,0 +1,16 @@
+server:
+  port: 9999
+spring:
+  application:
+    name: reg-service
+eureka:
+  instance:
+    perferIpAddress: true #use ip address for default zone
+  server:
+    enable-self-preservation: false # close self preservation
+    eviction-interval-timer-in-ms: 60000
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    serviceUrl:
+      defaultZone: http://127.0.0.1:9999/eureka #localhost ip address

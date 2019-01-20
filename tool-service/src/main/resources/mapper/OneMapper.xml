@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.happing.domain.mapper.OneMapper">
+    <resultMap id="resultMap" type="top.happing.domain.model.One">
+        <id column="ID" property="id" jdbcType="INTEGER" />
+        <result column="img" property="img" jdbcType="VARCHAR" />
+        <result column="content" property="content" jdbcType="VARCHAR" />
+        <result column="may" property="may" jdbcType="VARCHAR" />
+        <result column="dom" property="dom" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <select id="randomOne"  resultType="One">
+        SELECT t1.ID,t1.img,t1.content,t1.may,t1.dom
+        FROM tb_one AS t1 JOIN (SELECT ROUND(RAND() * ((SELECT MAX(id) FROM `tb_one`)-(SELECT MIN(id) FROM `tb_one`))+(SELECT MIN(id) FROM `tb_one`)) AS id) AS t2
+        WHERE t1.id &gt;= t2.id
+        ORDER BY t1.id LIMIT 5
+    </select>
+    <select id="countbyMenu"  resultType="java.lang.Integer">
+		SELECT count(*) FROM tb_one ;
+	</select>
+
+
+</mapper>
